@@ -11,8 +11,8 @@ function Header(){
             </Link>
             
             <div className="header_address">
-            <FmdGoodOutlinedIcon  className="header_adressIcon"/>
-            <img className="test" src="" alt="why"/>
+            {/* <FmdGoodOutlinedIcon  className="header_adressIcon"/> */}
+            <img className="test" src="https://github.com/danielarmbruster0314/Phase-3-Coding-Project-Amazon-Clone-Client-Model/blob/main/amazon-clone/assets/amazon_logos1.png?raw=true" alt="why"/>
             <div className="header_optionLeft">
             <span className="header_optionLineOneLeft">Hello</span>
             <span className="header_optionLineTwoLeft">Select your address</span>
@@ -41,6 +41,7 @@ function Header(){
             </Link>
 
             <Link to="/" className="header_link">
+            <img className="test2" src="https://github.com/danielarmbruster0314/Phase-3-Coding-Project-Amazon-Clone-Client-Model/blob/main/amazon-clone/assets/amazon_logos2.png?raw=true" alt="why"/>
             <div className="header_option">
             <span className="nav-sprite "></span>
             <span className="header_optionLineTwo">Cart</span>

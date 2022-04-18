@@ -106,7 +106,12 @@
 }
 
 .test{
-    justify-content: center;
- 
-   
+    height: 35px;
+    margin-top: 5px;
+}
+
+.test2{
+    display: inline;
+    height: 30px;
+    margin-top: 5px;
 }
