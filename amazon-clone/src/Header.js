@@ -1,9 +1,13 @@
 import "./Header.css"
 import { Link } from "react-router-dom"
 import SearchIcon from '@mui/icons-material/Search';
+import { useStateValue } from "./StateProvider"
+
+
 
 
 function Header(){
+    const [{ basket }] = useStateValue();
     return(
         <nav className="header">
             <Link to="/">
@@ -42,7 +46,7 @@ function Header(){
 
             <Link to="/checkout" className="header_link">
             <div className="header_optionCart"> 
-            <span className="header_cart_quantity">0</span>
+            <span className="header_cart_quantity">{basket?.length}</span>
             <img className="test2" src="https://github.com/danielarmbruster0314/Phase-3-Coding-Project-Amazon-Clone-Client-Model/blob/main/amazon-clone/assets/amazon_logos2.png?raw=true" alt="why"/>
             <span className="nav-sprite "></span>
             <span className="header_optionLineTwo">Cart</span>

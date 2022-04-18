@@ -1,3 +1,41 @@
+.product{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    background-color: white;
+    padding: 10px;
+    width: 100%;
+    z-index: 1;
+    margin: 10px;
+}
+
+
+
 .product_star{
     color: #FF9900;
+}
+
+.product_rating{
+    display:flex;
+}
+.product_image{
+    object-fit: contain;
+    max-height: 200px;
+    width: 100%;
+    margin: 15px 0px;
+    
+}
+.product_title{
+    color: #007185;
+}
+.product_price{
+    color: #b12704;
+    font-size: 14px;
+    font-weight: 500;
+    margin: 5px 0px;
+}
+.product_info{
+    height: 100px;
+    margin-bottom: 15px;
 }
