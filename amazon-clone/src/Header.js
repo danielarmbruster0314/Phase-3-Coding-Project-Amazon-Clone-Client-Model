@@ -9,13 +9,15 @@ function Header(){
             <Link to="/">
                 <img className="header_logo" src="https://pngimg.com/uploads/amazon/amazon_PNG11.png" alt="amazon logo"/>
             </Link>
-            <span className="header_address">
+            
+            <div className="header_address">
             <FmdGoodOutlinedIcon  className="header_adressIcon"/>
-            <span className="header_address_text">
-            <p>Hello</p>
-            <p className="address_strong">Select your address</p>
-            </span>
-            </span>
+            <img className="test" src="" alt="why"/>
+            <div className="header_optionLeft">
+            <span className="header_optionLineOneLeft">Hello</span>
+            <span className="header_optionLineTwoLeft">Select your address</span>
+            </div>
+            </div>
             <div className="header_search">
                 <select name="options" className="header_selectOption">
                     <option value="All">All</option>
@@ -23,7 +25,28 @@ function Header(){
                 <input type="text" className="header_searchInput" />
                 <SearchIcon className="header_searchIcon" /> 
             </div>
-      
+        <div className="header_nav">
+            <Link to="/login" className="header_link">
+            <div className="header_option">
+            <span className="header_optionLineOne">Hello, Sign in</span>
+            <span className="header_optionLineTwo">Account & Lists</span>
+            </div>
+            </Link>
+
+            <Link to="/" className="header_link">
+            <div className="header_option">
+            <span className="header_optionLineOne">Returns</span>
+            <span className="header_optionLineTwo"> & Orders</span>
+            </div>
+            </Link>
+
+            <Link to="/" className="header_link">
+            <div className="header_option">
+            <span className="nav-sprite "></span>
+            <span className="header_optionLineTwo">Cart</span>
+            </div>
+            </Link>
+        </div>
         </nav>
     );
 }
