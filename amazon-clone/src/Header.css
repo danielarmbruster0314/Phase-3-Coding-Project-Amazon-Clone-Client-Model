@@ -14,19 +14,43 @@
 }
 .header_search{
     display: flex;
+    flex: 1;
+}
+.header_address{
+    display: flex; 
+    padding: 0 9px 0 9px;
+    margin: 5px 2px 5px 0;
+}
+.header_address_text{
+    color: white;
+    font-size: 12px;
+    
+}
+.header_adressIcon{
+    color: white;
+    margin: 12px;
+   
 }
 .header_selectOption{
+    padding: 5px;
+    height: 32px;
     border-radius: 3px 0px 0px 3px ;
     background-color: #f3f3f3;
+    cursor: pointer;
+    border: 0;
 }
 .header_searchInput {
     height: 12px;
     padding: 10px;
     border: none;
+    width: 100%;
     
 }
 .header_searchIcon {
+    padding: 5px;
+    height: 22px !important;
     background-color: #cd9042;
     border-radius: 0px 3px 3px 0px ;
+    border: 0;
     
 }
