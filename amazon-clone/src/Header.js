@@ -40,7 +40,7 @@ function Header(){
             </div>
             </Link>
 
-            <Link to="/" className="header_link">
+            <Link to="/checkout" className="header_link">
             <div className="header_optionCart"> 
             <span className="header_cart_quantity">0</span>
             <img className="test2" src="https://github.com/danielarmbruster0314/Phase-3-Coding-Project-Amazon-Clone-Client-Model/blob/main/amazon-clone/assets/amazon_logos2.png?raw=true" alt="why"/>
