@@ -1,18 +1,29 @@
 import StarRateIcon from '@mui/icons-material/StarRate';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 import './CheckoutProduct.css';
+import { useStateValue } from './StateProvider';
 const ratingArray = [0,0,0,0,0]
 
 
-function handleRemoveFromCart (){
-
-}
 
 
 
 
-
-function CheckoutProduct({ item, title, price, image, rating}){
+function CheckoutProduct({ id, title, price, image, rating}){
+    const [{ basket }, dispatch] = useStateValue
+    
+    
+    
+    
+    
+    function handleRemoveFromCart (id){
+        dispatch(
+            {
+                type: "REMOVE_FROM_BASKET",
+                id: id,
+            }
+        )
+    }
 return (
     <div className="checkout_product">
         <img className="checkout_product_image"src={image} alt=""/>
@@ -34,7 +45,7 @@ return (
                         })
         }
         </div> 
-        <p onClick={handleRemoveFromCart}>Delete</p>
+        <p onClick={()=> handleRemoveFromCart(id)}>Delete</p>
     </div>
 )}
 

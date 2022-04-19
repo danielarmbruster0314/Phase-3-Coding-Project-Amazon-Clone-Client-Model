@@ -1,5 +1,7 @@
 .checkout_product{
     display: flex;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 
@@ -9,7 +11,7 @@
     height: 180px;
 }
 .checkout_product_info{
-    padding-left: 10px;
+    padding-left: 20px;
 }
 
 
