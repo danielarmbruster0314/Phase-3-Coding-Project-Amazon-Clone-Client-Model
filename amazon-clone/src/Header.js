@@ -1,7 +1,7 @@
-import "./Header.css"
-import { Link } from "react-router-dom"
+import "./Header.css";
+import { Link } from "react-router-dom";
 import SearchIcon from '@mui/icons-material/Search';
-import { useStateValue } from "./StateProvider"
+import { useStateValue } from "./StateProvider";
 
 
 
