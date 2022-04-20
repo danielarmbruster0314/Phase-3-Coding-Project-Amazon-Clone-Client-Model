@@ -6,7 +6,10 @@ import Home from './Home';
 import Checkout from './Checkout';
 import Productpage from './Productpage';
 import Categories from './Categories'
+import {useState} from 'react';
 function App() {
+const [cart, setCart] = useState([])
+
   return (
     <Router>
       <div className="App">

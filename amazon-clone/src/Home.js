@@ -1,8 +1,7 @@
 import "./Home.css";
 import Product from './Product';
 import {useState, useEffect} from "react";
-
-
+// import 'antd/dist/antd.css';
 
 
 

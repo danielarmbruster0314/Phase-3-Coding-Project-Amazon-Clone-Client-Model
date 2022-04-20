@@ -1,7 +1,7 @@
 import "./Product.css"
 import StarRateIcon from '@mui/icons-material/StarRate';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
-import { useStateValue } from "./StateProvider";
+// import { useStateValue } from "./StateProvider";
 import { Link  } from "react-router-dom";
 const ratingArray = [0,0,0,0,0]
 
