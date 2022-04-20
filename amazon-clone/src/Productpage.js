@@ -12,7 +12,7 @@ const ratingArray = [0,0,0,0,0]
 
 
 
-function Productpage({props}){
+function Productpage({ handleCart, cart}){
   const[isOn, setIsON] = useState(false)
   const [starRating, setStarRating] = useState(0)
   const [inputReview, setInputReview] = useState("") 
@@ -31,7 +31,14 @@ console.log("hi" + price)
 
   
 
-
+function addItemsToCart(){
+  handleCart({
+    id,
+    image,
+    name,
+    price
+  })
+}
 
    
     
@@ -78,7 +85,7 @@ console.log(inputReview)
     console.log(isOn)
     return (
         <>
-        <Header />
+        <Header cart={cart}/>
         <div className="container">
           <div className="product-content">
             <div>
@@ -110,7 +117,7 @@ console.log(inputReview)
             <div className="purchase_details">
               <h1>{state.product.price}</h1>
               <hr/>
-              <button className='product_details_button_1' >Add to Cart</button>
+              <button className='product_details_button_1' onClick={() => addItemsToCart()}>Add to Cart</button>
               <button className='product_details_button_2' onClick={() => hadndleClick()}>Review</button>
             </div>
             
