@@ -24,11 +24,15 @@ function Product({ product, id, title, imag, price, rating }){
 //             }
 //         })
 //     }
-const newobj = {id, title, imag, price, rating }
 
 
     return (
-        <Link className="product"  object={newobj} state={ newobj.title}  to={`/product/${newobj.title}`}>
+       
+        <Link className="product"   to={{
+            pathname: `/product/${product.name}`,
+            search: `?sort=${product.category}`,
+            state: { fromHomePage: true, product: product }
+          }}  >
     <div className="product">
         <img className="product_image" src={imag} alt="hi" />
         <div className="product_info">
