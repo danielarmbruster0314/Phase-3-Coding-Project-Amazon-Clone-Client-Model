@@ -2,12 +2,12 @@ import "./Product.css"
 import StarRateIcon from '@mui/icons-material/StarRate';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 import { useStateValue } from "./StateProvider";
-
+import { Link  } from "react-router-dom";
 const ratingArray = [0,0,0,0,0]
 
 
 
-function Product({ id, title, imag, price, rating }){
+function Product({ product, id, title, imag, price, rating }){
 
 // const [ {basket}, dispatch] = useStateValue
 
@@ -27,10 +27,17 @@ function Product({ id, title, imag, price, rating }){
 
 
     return (
+       
+        <Link className="product"   to={{
+            pathname: `/product/${product.name}`,
+            search: `?sort=${product.category}`,
+            state: { fromHomePage: true, product: product }
+          }}  >
     <div className="product">
         <img className="product_image" src={imag} alt="hi" />
         <div className="product_info">
             <p className="product_title">{title}</p>
+            <br/>
                 <div className="product_rating">
                     { ratingArray
                         .fill(1, 0, rating)
@@ -48,7 +55,8 @@ function Product({ id, title, imag, price, rating }){
         </p>
         </div>
     </div>
+    </Link> 
     )}
 
 
-export default Product
+    export default Product;

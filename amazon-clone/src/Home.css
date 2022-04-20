@@ -1,21 +1,32 @@
 .home{
-    max-width: 1500px;
+    max-width: 1000%;
     margin-left: auto;
     margin-right: auto;
+    object-fit: cover;
+    
 }
 
 
 .home_image{
-    width: 100%;
+    z-index: 0;
+    width: 200px;
+    height: 200px;
     mask-image: linear-gradient( to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
     z-index: -1;
-    margin-bottom: -275px;
+    margin-bottom: -425px;
+    min-width: 100vw;
+    height: 750px;
+    position: absolute;
+    left:-25px; 
+    top:100px;
+    display: block; 
 }
 
 
 .home_image_leftArrow{
     position:absolute;
-    z-index: 1;
+    top: 130px;
+    z-index: 2;
     left: 10px; 
     background-color: rgba(255,255,255,0);
     border:none;
@@ -32,7 +43,7 @@
     border:none;
     height:250px;
     cursor: pointer;
-
+    top: 130px;
 }
 
 .home_row{
@@ -40,6 +51,7 @@
     z-index: 1;
     margin-left: 15px;
     margin-right: 15px;
+    margin-top: 300px;
 }
 .home_row_second{
     display: flex;
@@ -47,3 +59,8 @@
     margin-left: 15px;
     margin-right: 15px;
 }
+
+
+
+
+  

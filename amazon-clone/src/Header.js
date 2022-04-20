@@ -1,21 +1,21 @@
-import "./Header.css"
-import { Link } from "react-router-dom"
+import "./Header.css";
+import { Link } from "react-router-dom";
 import SearchIcon from '@mui/icons-material/Search';
-import { useStateValue } from "./StateProvider"
+import { useStateValue } from "./StateProvider";
+import { MenuOutlined} from "@ant-design/icons";
 
 
-
-
+const categories = ["Books", "Electronics", "Kitchen" , "Sports"];
 function Header(){
     const [{ basket }] = useStateValue();
     return(
+        <>
         <nav className="header">
             <Link to="/">
                 <img className="header_logo" src="https://pngimg.com/uploads/amazon/amazon_PNG11.png" alt="amazon logo"/>
             </Link>
             
             <div className="header_address">
-            {/* <FmdGoodOutlinedIcon  className="header_adressIcon"/> */}
             <img className="header_locationIcon" src="https://github.com/danielarmbruster0314/Phase-3-Coding-Project-Amazon-Clone-Client-Model/blob/main/amazon-clone/assets/amazon_logos1.png?raw=true" alt="why"/>
             <div className="header_optionLeft">
             <span className="header_optionLineOneLeft">Hello</span>
@@ -54,6 +54,23 @@ function Header(){
             </Link>
         </div>
         </nav>
+
+
+        <div className="header_subheader">
+            <MenuOutlined />
+           <span>Categories</span> 
+          {categories.map((e) =>{
+            return(
+              <Link to="/categories" state={e} className="categories">
+                {e}
+              </Link>
+            )
+  
+          })}
+        
+        
+      </div>
+      </>
     );
 }
 
