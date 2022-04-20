@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "antd": "^4.19.5",
     "react-currency-format": "^1.1.0",
     "react-router": "^6.3.0"
   }

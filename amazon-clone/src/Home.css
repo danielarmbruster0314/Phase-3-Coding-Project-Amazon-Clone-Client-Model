@@ -9,7 +9,10 @@
     width: 100%;
     mask-image: linear-gradient( to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
     z-index: -1;
-    margin-bottom: -275px;
+    margin-bottom: -425px;
+    min-width: 100vw;
+    height: 750px;
+    object-fit: cover;
 }
 
 
@@ -32,7 +35,7 @@
     border:none;
     height:250px;
     cursor: pointer;
-
+    top: 130px;
 }
 
 .home_row{
@@ -47,3 +50,9 @@
     margin-left: 15px;
     margin-right: 15px;
 }
+
+.home_image_carousel {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
