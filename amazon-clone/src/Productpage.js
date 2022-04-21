@@ -1,11 +1,11 @@
 import'./Productpage.css';
-import {useParams, useLocation} from 'react-router'
+import { useLocation} from 'react-router'
 import {useState, useEffect} from 'react';
 import Header from './Header.js';
 import StarRating from './Starrating';
 import StarRateIcon from '@mui/icons-material/StarRate';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
-import { useStateValue } from "./StateProvider";
+
 
 const ratingArray = [0,0,0,0,0]
 
@@ -20,15 +20,20 @@ function Productpage({ handleCart, cart}){
   const [inputReview, setInputReview] = useState("") 
   const {state} = useLocation();
   const [newid , setNewId] = useState(0)
-console.log(state.product)
+  const [reviews, setReviews] = useState([])
+  
+
+
 let name =state.product.name
 let image = state.product.image 
 let id = state.product.id
 let price = state.product.price
 
-  // const [reviews, setReviews] = useState([])
 
   
+ 
+  
+
 
 function addItemsToCart(){
 setNewId((newid) => newid + 1)
@@ -42,21 +47,26 @@ setNewId((newid) => newid + 1)
   })
 }
 
-   console.log(newid)
-    
-   let arrayOfReviews = [state.product.reviews]
+useEffect(() => {
+  
+setReviews(state.product.reviews)
+},[]);
 
-  console.log(arrayOfReviews)
+    
+   
+
+  
   
 
       function handleSubmit(){
+        setIsON((isOn) => !isOn)
         let data = {
           review: inputReview,
       star_rating: starRating, 
       user_id: null,
       product_id: state.product.id
         }
-        setIsON((isOn) => !isOn)
+        
         fetch("http://localhost:9292/reviews", {
           method: "POST",
           headers: {'Content-Type': 'application/json'}, 
@@ -64,7 +74,8 @@ setNewId((newid) => newid + 1)
         })
         .then(resp => resp.json())
         .then(res => {
-          console.log("Request complete! response:", res);
+          console.log(res)
+          setReviews([...reviews,res]);
         });
           
       }
@@ -73,7 +84,7 @@ setNewId((newid) => newid + 1)
     function handleTextInput(e){
       setInputReview(e.target.value)
     }
-console.log(inputReview)
+
 
     function hadnleRating(value){
       setStarRating(value)
@@ -84,7 +95,7 @@ console.log(inputReview)
     function hadndleClick(){
       setIsON((isOn) => !isOn)
     }
-    console.log(isOn)
+  
     return (
         <>
         <Header cart={cart}/>
@@ -128,7 +139,7 @@ console.log(inputReview)
         <div className="product_reviews">
           <h1>Reviews</h1>
 {/* state.product. */}
-          <div>{ state.product.reviews?.map((review) => <div key={review.index} className="product_review" >
+          <div>{ reviews?.map((review) => <div key={review.index} className="product_review" >
             { Array.from(ratingArray )
                         .fill(1, 0, review.star_rating)
                         .map((integer, index) => {

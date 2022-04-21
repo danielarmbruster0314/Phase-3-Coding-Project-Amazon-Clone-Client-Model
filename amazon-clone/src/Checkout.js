@@ -49,13 +49,13 @@ function handleRemove(id){
                                             <h2 className="checkout_title">
                                                 Your shopping Basket
                                             </h2>
-                                            {cart?.map( (item, index) =>( <CheckoutProduct key={index} secondid={item.newid} id={item.id} title={item.name} handleRemove={handleRemove} image={item.image} price={item.price}  />))}
+                                            {cart?.map( (item, index) =>( <CheckoutProduct key={index} secondid={item.id}  id={item.id} title={item.product.name} handleRemove={handleRemove} image={item.product.image} price={item.product.price}  />))}
                                         </div>
                                         )}
                     </div>
                     {cart?.length > 0 && (
                         <div className="checkout_right">
-                            <Subtotal />
+                            <Subtotal cart={cart}/>
 
 
                         </div>

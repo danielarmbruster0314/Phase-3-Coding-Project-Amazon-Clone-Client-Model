@@ -6,20 +6,54 @@ import Home from './Home';
 import Checkout from './Checkout';
 import Productpage from './Productpage';
 import Categories from './Categories'
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import Login from "./Login"
 function App() {
 const [cart, setCart] = useState([])
-function handleCart(obj){
 
+
+useEffect(()=> {
+  fetch("http://localhost:9292/oders")
+  .then((r) => r.json())
+  .then((orders) => 
+  setCart(orders)
+  );
+}, []);
+
+
+
+
+function handleCart(obj){
   setCart([...cart,obj])
-  console.log(cart)
+  let data = {
+    order_number: obj.newid,
+      user_id: null,
+      product_id: obj.id
+  }
+  fetch("http://localhost:9292/orders", {
+    method: "POST",
+    headers: {'Content-Type': 'application/json'}, 
+    body: JSON.stringify(data)
+  })
+  .then(resp => resp.json())
+  .then(res => {
+    console.log("Request complete! response:", res);
+  });
   
 }
 
 function handleRemoveFromCart(id){
-  const newcart = cart.filter((item) => item.newid != id)
-   setCart(newcart)
+  const newcart = cart.filter((item) => item.id != id)
+  fetch(`http://localhost:9292/orders/${id}`,{
+    method: 'DELETE'
+})
+.then(res => res.json())
+.then(data => {
+    console.log(data)
+    
+    setCart(newcart)
+})
+   console.log(newcart)
 }
 
   return (
