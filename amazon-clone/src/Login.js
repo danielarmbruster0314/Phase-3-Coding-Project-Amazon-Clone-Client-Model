@@ -23,35 +23,39 @@ function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setUser('');
+    setPwd('');
+    setSuccess(true);
+  }
     //11:44 in react video to connect with backend as stretch goal
-    try {
-      const response = await axios.post(
-        LOGIN_URL,
-        JSON.stringify({ user, pwd }),
-        {
-          header: { "Content-Type": "application/json" },
-          withCredentials: true,
-        }
-      );
-      const accessToken = response?.data?.accessToken;
-      const roles = response?.data?.roles;
-      setAuth({ user, pwd, roles, accessToken });
-      setUser("");
-      setPwd("");
-      setSuccess(true);
-    } catch (err) {
-      if (!err?.response) {
-        setErrMsg("No Server Response");
-      } else if (err.response?.status === 400) {
-        setErrMsg("Missing Username or Password");
-      } else if (err.response?.status === 401) {
-        setErrMsg("Unauthorized");
-      } else {
-        setErrMsg("Login Failed");
-      }
-      errRef.current.focus();
-    }
-  };
+  //   try {
+  //     const response = await axios.post(
+  //       LOGIN_URL,
+  //       JSON.stringify({ user, pwd }),
+  //       {
+  //         header: { "Content-Type": "application/json" },
+  //         withCredentials: true,
+  //       }
+  //     );
+  //     const accessToken = response?.data?.accessToken;
+  //     const roles = response?.data?.roles;
+  //     setAuth({ user, pwd, roles, accessToken });
+  //     setUser("");
+  //     setPwd("");
+  //     setSuccess(true);
+  //   } catch (err) {
+  //     if (!err?.response) {
+  //       setErrMsg("No Server Response");
+  //     } else if (err.response?.status === 400) {
+  //       setErrMsg("Missing Username or Password");
+  //     } else if (err.response?.status === 401) {
+  //       setErrMsg("Unauthorized");
+  //     } else {
+  //       setErrMsg("Login Failed");
+  //     }
+  //     errRef.current.focus();
+  //   }
+  // };
 
   return (
     <>
@@ -61,7 +65,7 @@ function Login() {
             <h1>You are logged in!</h1>
             <br />
             <p>
-              <a href="./home">Go to Home</a>
+              <a href="/">Go to Home</a>
             </p>
           </section>
         ) : (
@@ -104,12 +108,12 @@ function Login() {
               <button class="w-100 btn btn-warning">Log In</button>
             </form>
 
-            <p>
+            {/* <p>
               Need an Account? <br />
               <span className="line">
                 <a href="./registration">Create Account</a>
               </span>
-            </p>
+            </p> */}
           </section>
         )}
       </main>
