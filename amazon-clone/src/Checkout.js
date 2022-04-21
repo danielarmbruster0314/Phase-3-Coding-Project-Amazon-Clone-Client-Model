@@ -2,14 +2,28 @@ import './Checkout.css';
 import { Link } from "react-router-dom";
 import CheckoutProduct from './CheckoutProduct';
 import Subtotal from './Subtotal';
-
+import {useState, useEffect} from "react";
 import { useStateValue } from "./StateProvider";
 
 
-function Checkoutout({cart}) {
+function Checkoutout({cart,handleRemoveFromCart}) {
+  
+
+console.log(cart)
 
 
-    return( <div className="checkout">
+function handleRemove(id){
+    handleRemoveFromCart(id)
+}
+
+
+
+
+
+
+
+    return( 
+    <div className="checkout">
                 <div className='"checkout_left'>
                     <img className="checkout_add" src="https://images-na.ssl-images-amazon.com/images/G/01/credit/img18/CBCC/wfm/card-info_desktop_wf-unrecnp.jpg" alt="amazon_add"/>
                         {cart?.length === 0 ? (
@@ -35,7 +49,7 @@ function Checkoutout({cart}) {
                                             <h2 className="checkout_title">
                                                 Your shopping Basket
                                             </h2>
-                                            {cart?.map( item =>( <CheckoutProduct id={item.id} title={item.name} image={item.image} price={item.price}  />))}
+                                            {cart?.map( (item, index) =>( <CheckoutProduct key={index} secondid={item.newid} id={item.id} title={item.name} handleRemove={handleRemove} image={item.image} price={item.price}  />))}
                                         </div>
                                         )}
                     </div>

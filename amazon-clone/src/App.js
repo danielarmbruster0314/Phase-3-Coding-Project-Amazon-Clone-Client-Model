@@ -7,20 +7,28 @@ import Checkout from './Checkout';
 import Productpage from './Productpage';
 import Categories from './Categories'
 import {useState} from 'react';
+import Login from "./Login"
 function App() {
 const [cart, setCart] = useState([])
 function handleCart(obj){
+
   setCart([...cart,obj])
+  console.log(cart)
   
 }
-console.log(cart)
+
+function handleRemoveFromCart(id){
+  const newcart = cart.filter((item) => item.newid != id)
+   setCart(newcart)
+}
+
   return (
     <Router>
       <div className="App">
         <Switch>
             <Route path="/checkout">
              <Header cart={cart}/>
-             <Checkout cart={cart}/>
+             <Checkout handleRemoveFromCart={handleRemoveFromCart} cart={cart}/>
              
             </Route>
              <Route path="/product" component={(routeProps) => <Productpage {...routeProps}/>}>
@@ -34,7 +42,7 @@ console.log(cart)
               <Categories />
           </Route>
           <Route path ="/login">
-          
+          <Login />
           </Route>
           <Route exact path="/">
             <Header cart={cart}/>

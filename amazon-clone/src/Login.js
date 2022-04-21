@@ -1,8 +1,6 @@
 import React, { useRef, useState, useEffect, useContext } from "react";
-import AuthContext from "../.././context/AuthProvider";
-import { Button } from "react-bootstrap";
-
-import axios from "../.././api/axios";
+import AuthContext from "./context/AuthProvider.js";
+import axios from "./api/axios.js";
 const LOGIN_URL = "/auth";
 
 function Login() {
@@ -102,8 +100,8 @@ function Login() {
                 class="form-control"
                 required
               />
-
-              <Button class="w-100 btn btn-warning">Log In</Button>
+  
+              <button class="w-100 btn btn-warning">Log In</button>
             </form>
 
             <p>
