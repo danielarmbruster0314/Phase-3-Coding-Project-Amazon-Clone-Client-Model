@@ -13,34 +13,36 @@ const ratingArray = [0,0,0,0,0]
 
 
 function Productpage({ handleCart, cart}){
+
+
   const[isOn, setIsON] = useState(false)
   const [starRating, setStarRating] = useState(0)
   const [inputReview, setInputReview] = useState("") 
   const {state} = useLocation();
-
+  const [newid , setNewId] = useState(0)
 console.log(state.product)
 let name =state.product.name
 let image = state.product.image 
 let id = state.product.id
 let price = state.product.price
-console.log("hi" + name)
-console.log("hi" + image)
-console.log("hi" + id)
-console.log("hi" + price)
+
   // const [reviews, setReviews] = useState([])
 
   
 
 function addItemsToCart(){
+setNewId((newid) => newid + 1)
+
   handleCart({
     id,
     image,
     name,
-    price
+    price,
+    newid: newid
   })
 }
 
-   
+   console.log(newid)
     
    let arrayOfReviews = [state.product.reviews]
 
@@ -76,7 +78,7 @@ console.log(inputReview)
     function hadnleRating(value){
       setStarRating(value)
     }
-    console.log(starRating)
+    
 
    
     function hadndleClick(){

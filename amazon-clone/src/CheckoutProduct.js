@@ -9,20 +9,15 @@ const ratingArray = [0,0,0,0,0]
 
 
 
-function CheckoutProduct({ id, title, price, image, rating}){
-    const [{ basket }, dispatch] = useStateValue
+function CheckoutProduct({ id, title, price, image, rating, secondid, key,handleRemove}){
+    // const [{ basket }, dispatch] = useStateValue
     
     
     
     
     
-    function handleRemoveFromCart (id){
-        dispatch(
-            {
-                type: "REMOVE_FROM_BASKET",
-                id: id,
-            }
-        )
+    function handleRemoveFromCart (index){
+        handleRemove(index)
     }
 return (
     <div className="checkout_product">
@@ -34,7 +29,7 @@ return (
         </p>
         </div>
         <div className="checkout_product_rating">
-                    { ratingArray
+                    { Array.from(ratingArray )
                         .fill(1, 0, rating)
                         .map((integer, index) => {
                              if(integer===1){
@@ -45,7 +40,7 @@ return (
                         })
         }
         </div> 
-        <p onClick={()=> handleRemoveFromCart(id)}>Delete</p>
+        <p onClick={()=> handleRemoveFromCart(secondid)}>Delete</p>
     </div>
 )}
 

@@ -61,7 +61,7 @@ function Header({cart}){
            <span>Categories</span> 
           {categories.map((e) =>{
             return(
-              <Link to="/categories" state={e} className="categories">
+              <Link  to="/categories" state={e} className="categories">
                 {e}
               </Link>
             )
