@@ -7,6 +7,7 @@ import Checkout from './Checkout';
 import Productpage from './Productpage';
 import Categories from './Categories'
 import {useState} from 'react';
+import Login from "./Login"
 function App() {
 const [cart, setCart] = useState([])
 function handleCart(obj){
@@ -41,7 +42,7 @@ function handleRemoveFromCart(id){
               <Categories />
           </Route>
           <Route path ="/login">
-          
+          <Login />
           </Route>
           <Route exact path="/">
             <Header cart={cart}/>
