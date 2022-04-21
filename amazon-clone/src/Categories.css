@@ -1,0 +1,12 @@
+.results_header {
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    font-size: 16px;
+    padding: 10px 25px;
+    font-weight: 500;
+  }
+  
+  .category {
+    color: #FF9900;
+    font-weight: bold;
+  }
