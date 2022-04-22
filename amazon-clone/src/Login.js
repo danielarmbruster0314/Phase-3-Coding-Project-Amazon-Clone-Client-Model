@@ -1,4 +1,5 @@
 import React, { useRef, useState, useEffect, useContext } from "react";
+import"./Login.css";
 import AuthContext from "./context/AuthProvider.js";
 // import axios from "./api/axios.js";
 const LOGIN_URL = "/auth";
@@ -58,8 +59,8 @@ function Login() {
   // };
 
   return (
-    <>
-      <main class="form-signin">
+    <div class="login">
+      <main class="login__container">
         {success ? (
           <section>
             <h1>You are logged in!</h1>
@@ -105,7 +106,7 @@ function Login() {
                 required
               />
   
-              <button class="w-100 btn btn-warning">Log In</button>
+              <button class="login__signInButton">Log In</button>
             </form>
 
             {/* <p>
@@ -117,7 +118,7 @@ function Login() {
           </section>
         )}
       </main>
-    </>
+    </div>
   );
 }
 

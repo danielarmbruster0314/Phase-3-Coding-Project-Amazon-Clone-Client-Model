@@ -5,7 +5,7 @@ import Header from './Header.js';
 import StarRating from './Starrating';
 import StarRateIcon from '@mui/icons-material/StarRate';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
-
+import EditReview from './EditReview';
 
 const ratingArray = [0,0,0,0,0]
 
@@ -21,7 +21,7 @@ function Productpage({ handleCart, cart}){
   const {state} = useLocation();
   const [newid , setNewId] = useState(0)
   const [reviews, setReviews] = useState([])
-  
+  const[isEditing, setIsEditing] = useState(false)
 
 
 let name =state.product.name
@@ -54,6 +54,23 @@ setReviews(state.product.reviews)
 
     
    
+function handleUpdateMessage(updatedMessageObj) {
+  const updatedMessages = reviews.map((review) => {
+    if (review.id === updatedMessageObj.id) {
+      return updatedMessageObj;
+    } else {
+      return review;
+    }
+  });
+  setReviews(updatedMessages);
+}
+
+
+
+
+
+
+
 
   
   
@@ -79,8 +96,8 @@ setReviews(state.product.reviews)
         });
           
       }
-
-
+            let nonmutableratings = reviews.slice(0,-1)
+            let mutablerating = reviews.slice(-1)
     function handleTextInput(e){
       setInputReview(e.target.value)
     }
@@ -139,7 +156,26 @@ setReviews(state.product.reviews)
         <div className="product_reviews">
           <h1>Reviews</h1>
 {/* state.product. */}
-          <div>{ reviews?.map((review) => <div key={review.index} className="product_review" >
+          <div>
+            {isEditing?
+            <EditReview item={mutablerating} review={mutablerating.review} onUpdateMessage={handleUpdateMessage} setIsEditing={setIsEditing}/> :
+            mutablerating?.map((review) => <div key={review.index} className="product_review" >
+            { Array.from(ratingArray )
+                        .fill(1, 0, review.star_rating)
+                        .map((integer, index) => {
+                             if(integer===1){
+                                return   <p key={index}><StarRateIcon className="product_star" /></p> 
+                             }else{
+                                return  <p key={index}><StarBorderIcon className="product_star" /> </p>
+                            }
+                            
+                        })
+                      } 
+            <p>{review.review}</p><button onClick={()=>setIsEditing(!isEditing)}>✏️</button></div>)}</div>
+      
+        
+          <div>
+            { nonmutableratings?.map((review) => <div key={review.index} className="product_review" >
             { Array.from(ratingArray )
                         .fill(1, 0, review.star_rating)
                         .map((integer, index) => {
